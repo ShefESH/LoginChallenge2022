@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}HACK. THIS. SITE{% endblock %}
+
+{% block content %}
+
+{{super()}}
+
+<h1>HACK. THIS. SITE.</h1>
+
+{% if hacked == "NOPE" %}
+<h2>YOU COULDN'T HACK IT.</h2>
+{% endif %}
+
+<div id="form" class="flexcol">
+    <form action="/verify-login" method="post" id="login-form" class="flexcol">
+        <label for="username">USERNAME</label>
+        <input name="username"></input>
+        <label for="password">PASSWORD</label>
+        <input name="password" type="password"></input>
+        <input type="submit" value="SUBMIT" class="submit">
+    </form>
+    <div id="response"></div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+
+{{super()}}
+
+{% endblock %}

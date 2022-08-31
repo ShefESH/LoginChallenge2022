@@ -1,0 +1,3 @@
+flask
+Flask-JWT
+flask_bootstrap
