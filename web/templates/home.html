@@ -8,15 +8,15 @@
 
 <h1>HACK. THIS. SITE.</h1>
 
-{% if hacked == "NOPE" %}
-<h2>YOU COULDN'T HACK IT.</h2>
+{% if login == "True" %}
+<h2>Incorrect Username or Password</h2>
 {% endif %}
 
 <div id="form" class="flexcol">
     <form action="/verify-login" method="post" id="login-form" class="flexcol">
-        <label for="username">USERNAME</label>
+        <label for="username">Username</label>
         <input name="username"></input>
-        <label for="password">PASSWORD</label>
+        <label for="password">Password</label>
         <input name="password" type="password"></input>
         <input type="submit" value="SUBMIT" class="submit">
     </form>

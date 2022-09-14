@@ -11,17 +11,17 @@ pwd = "You#Still]Won't[Guess\This!2022,"
 
 @app.route("/")
 def index():
-    hacked = request.args.get("DIDYOUHACKIT")
-    if hacked is not None and hacked == "TRUE":
+    success = request.args.get("loginSuccessful")
+    if success is not None and success == "True":
         return render_template("hacked.html")
-    elif hacked is not None:
-        return render_template('home.html', hacked="NOPE")
+    elif success is not None:
+        return render_template('home.html', login="True")
     else:
         return render_template('home.html')
 
 @app.route("/verify-login", methods=["POST"])
 def verify_login():
     if request.form.get('username') == uname and request.form.get('password') == pwd:
-        return redirect("/?DIDYOUHACKIT=TRUE")
+        return redirect("/?loginSuccessful=True")
     else:
-        return redirect("/?DIDYOUHACKIT=FALSE")
+        return redirect("/?loginSuccessful=False")
