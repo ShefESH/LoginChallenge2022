@@ -6,7 +6,17 @@
 
 {{super()}}
 
-<h1>HACK. THIS. SITE.</h1>
+<div id="intro-headers">
+    <h1 class="pink">
+        HACK
+    </h1>
+    <h1 class="blue">
+        THIS
+    </h1>
+    <h1 class="pink">
+        SITE
+    </h1>
+</div>
 
 {% if login == "True" %}
 <h2>Incorrect Username or Password</h2>
@@ -18,7 +28,7 @@
         <input name="username"></input>
         <label for="password">Password</label>
         <input name="password" type="password"></input>
-        <input type="submit" value="SUBMIT" class="submit">
+        <input type="submit" value="Submit" class="submit">
     </form>
     <div id="response"></div>
 </div>
