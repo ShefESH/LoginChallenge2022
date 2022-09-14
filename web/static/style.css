@@ -104,3 +104,33 @@ form button {
     font-weight: bold;
     font-size: 9em;
 }
+
+@keyframes slidein-left {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slidein-right {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+#first-header {
+    animation: 2s slidein-left ease;
+}
+
+#second-header {
+    animation: 2.6s slidein-right ease;
+}
+
+#third-header {
+    animation: 3s slidein-left ease;
+}
