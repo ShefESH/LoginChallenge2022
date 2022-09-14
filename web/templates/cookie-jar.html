@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}Cookie Jar{% endblock %}
+
+{% block content %}
+
+{{super()}}
+
+{% if allowed %}
+<h1>Congratulations! You win a laptop sticker!</h1>
+{% else %}
+<h1>Only admins are allowed to open the cookie jar.</h1>
+{% endif %}
+
+{% endblock %}
+
+{% block footer %}
+
+{{super()}}
+
+{% endblock %}

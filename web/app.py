@@ -2,12 +2,22 @@ from flask import Flask
 from flask import render_template, jsonify, make_response, redirect, request
 from flask_bootstrap import Bootstrap
 
+from flask_jwt_extended import create_access_token
+from flask_jwt_extended import get_jwt_identity
+from flask_jwt_extended import jwt_required
+from flask_jwt_extended import JWTManager
+from numpy import identity
+
 app = Flask(__name__)
 Bootstrap(app)
 
 # no need for sqlite authentication, just store uname/password
 uname = "SESHAdmin"
 pwd = "You#Still]Won't[Guess\This!2022,"
+
+app.config["JWT_SECRET_KEY"] = ";nod87b;/dfub6vaz.knib"
+
+jwt = JWTManager(app)
 
 @app.route("/")
 def index():
@@ -25,3 +35,20 @@ def verify_login():
         return redirect("/?loginSuccessful=True")
     else:
         return redirect("/?loginSuccessful=False")
+
+@app.route("/hard")
+def hard():
+    id_dict = {'is_admin': False}
+    access_token = create_access_token(identity=id_dict)
+    resp = make_response(redirect("/cookie-jar"))
+    resp.set_cookie('Authorization', access_token)
+    return resp
+
+@app.route("/cookie-jar")
+@jwt_required()
+def cookie_jar():
+    identity = get_jwt_identity()
+    if identity['is_admin']:
+        return render_template("cookie-jar.html", allowed=True)
+    else:
+        return render_template("cookie-jar.html", allowed=False)
