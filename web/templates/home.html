@@ -7,7 +7,7 @@
 {{super()}}
 
 {% if login == "Failed" %}
-<div id="intro-headers">
+<div id="intro-headers" class="centre">
     <h1 class="pink">
         HACK
     </h1>
@@ -19,7 +19,7 @@
     </h1>
 </div>
 {% else %}
-<div id="intro-headers">
+<div id="intro-headers" class="centre">
     <h1 class="pink" id="first-header">
         HACK
     </h1>
@@ -33,27 +33,31 @@
 {% endif %}
 
 {% if login == "Failed" %}
-<h2>Incorrect Username or Password</h2>
+<div class="centre">
+    <h2>Incorrect Username or Password</h2>
+</div>
 {% endif %}
 
 {% if login == "Failed" %}
 
-<div id="form" class="flexcol">
-    <form action="/verify-login" method="post" id="login-form" class="flexcol">
-        <label for="username">Username</label>
-        <input name="username"></input>
-        <label for="password">Password</label>
-        <input name="password" type="password"></input>
-        <input type="submit" value="Submit" class="submit">
-    </form>
-    <div id="response"></div>
-
-    <img id="logo" src="static/seshlogo.png">
+<div class="centre">
+    <div id="form" class="flexcol">
+        <form action="/verify-login" method="post" id="login-form" class="flexcol">
+            <label for="username">Username</label>
+            <input name="username"></input>
+            <label for="password">Password</label>
+            <input name="password" type="password"></input>
+            <input type="submit" value="Submit" class="submit">
+        </form>
+        <div id="response"></div>
+    
+        <img id="logo" src="static/seshlogo.png">
+    </div>
 </div>
 
 {% else %}
 
-<div id="upgroup">
+<div id="upgroup" class="centre">
     <div id="form" class="flexcol">
         <form action="/verify-login" method="post" id="login-form" class="flexcol">
             <label for="username">Username</label>

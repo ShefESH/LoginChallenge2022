@@ -53,6 +53,13 @@ footer {
     color: white;
 }
 
+.centre {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+}
+
 #banner {
     display: flex;
     margin: auto;
@@ -83,13 +90,6 @@ footer {
 
 #form, #congrats {
     padding: 4%;
-}
-
-#form {
-    display: flex;
-    flex-direction: column;
-    align-items:center;
-    justify-content:center;
 }
 
 #form label {
@@ -144,9 +144,9 @@ form button {
 }
 
 #upgroup  {
-    display: flex;
-    flex-direction: column;
-    align-items:center;
-    justify-content:center;
-    animation: 3s slidein-up ease;
+    animation: 2.8s slidein-up ease;
+}
+
+#form {
+    padding-top: 0%;
 }
