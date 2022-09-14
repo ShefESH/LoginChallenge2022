@@ -71,10 +71,9 @@ footer {
     margin-bottom: 20px;
 }
 
-#banner img {
+#logo {
     max-width: 180px;
     max-height: 180px;
-    margin-right: 4%;
 }
 
 .flexcol {
@@ -91,7 +90,6 @@ footer {
     flex-direction: column;
     align-items:center;
     justify-content:center;
-    animation: 3.5s slidein-up ease;
 }
 
 #form label {
@@ -143,4 +141,12 @@ form button {
 
 #third-header {
     animation: 3s slidein-left ease;
+}
+
+#upgroup  {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+    animation: 3s slidein-up ease;
 }
