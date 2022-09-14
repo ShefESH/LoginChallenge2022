@@ -6,6 +6,19 @@
 
 {{super()}}
 
+{% if login == "Failed" %}
+<div id="intro-headers">
+    <h1 class="pink">
+        HACK
+    </h1>
+    <h1 class="blue">
+        THIS
+    </h1>
+    <h1 class="pink">
+        SITE
+    </h1>
+</div>
+{% else %}
 <div id="intro-headers">
     <h1 class="pink" id="first-header">
         HACK
@@ -17,8 +30,9 @@
         SITE
     </h1>
 </div>
+{% endif %}
 
-{% if login == "True" %}
+{% if login == "Failed" %}
 <h2>Incorrect Username or Password</h2>
 {% endif %}
 

@@ -7,6 +7,33 @@
     --bodyFont: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 }
 
+@keyframes slidein-left {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slidein-right {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slidein-up {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
 a {
     color: var(--lightBlue);
 }
@@ -64,6 +91,7 @@ footer {
     flex-direction: column;
     align-items:center;
     justify-content:center;
+    animation: 3.5s slidein-up ease;
 }
 
 #form label {
@@ -103,24 +131,6 @@ form button {
 #intro-headers h1 {
     font-weight: bold;
     font-size: 9em;
-}
-
-@keyframes slidein-left {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
-        transform: translateX(0);
-    }
-}
-
-@keyframes slidein-right {
-    0% {
-        transform: translateX(100%);
-    }
-    100% {
-        transform: translateX(0);
-    }
 }
 
 #first-header {

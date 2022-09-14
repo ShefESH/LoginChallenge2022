@@ -15,7 +15,7 @@ def index():
     if success is not None and success == "True":
         return render_template("hacked.html")
     elif success is not None:
-        return render_template('home.html', login="True")
+        return render_template('home.html', login="Failed")
     else:
         return render_template('home.html')
 
