@@ -17,6 +17,7 @@ uname = "admin"
 pwd = "password"
 
 app.config["JWT_SECRET_KEY"] = ";nod87b;/dfub6vaz.knib"
+app.config['JWT_TOKEN_LOCATION'] = ['cookies']
 
 jwt = JWTManager(app)
 
@@ -42,7 +43,7 @@ def hard():
     id_dict = {'is_admin': False}
     access_token = create_access_token(identity=id_dict)
     resp = make_response(redirect("/cookie-jar"))
-    resp.set_cookie('Authorization', access_token)
+    resp.set_cookie('access_token_cookie', access_token)
     return resp
 
 @app.route("/cookie-jar")
