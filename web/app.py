@@ -65,13 +65,17 @@ def cookie_jar():
 
     if identity['is_admin']:
         welcome = "Congratulations! You win a laptop sticker!"
-        return render_template("cookie-jar.html", welcome_msg=welcome)
+        return render_template("cookie-jar.html", welcome_msg=welcome, win=True)
     else:
         msg = "Hello " + name + "! Unfortunately, only admins are allowed to open the cookie jar."
         welcome = render_template_string(msg)
         return render_template("cookie-jar.html", welcome_msg=welcome)
 
+@app.route("/cleanup")
 def cleanup():
     """clear cookies and any temp variables"""
     session['name'] = None
-    return
+    resp = make_response(redirect('/'))
+    resp.set_cookie('access_token_cookie', '', expires=0)
+    resp.set_cookie('Authorization', '', expires=0)
+    return resp

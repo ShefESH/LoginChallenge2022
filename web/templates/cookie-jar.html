@@ -8,6 +8,12 @@
 
 <h1>{{ welcome_msg }}</h1>
 
+{% if win %}
+<form action="/cleanup">
+    <input type="submit" value="Restart" />
+</form>
+{% endif %}
+
 {% endblock %}
 
 {% block footer %}
