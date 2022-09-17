@@ -56,7 +56,7 @@ Guess the weak credentials `admin`:`password`
 
 ### Part 2
 
-Leak app secret with SSTI
+Leak app secret with SSTI, submitting `{{ config }}` as username
 
 THEN
 

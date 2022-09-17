@@ -50,8 +50,12 @@ def hungry():
 
 @app.route("/who-are-you", methods=["POST"])
 def get_name():
-    session['name'] = request.form.get('name')
-    return redirect("/cookie-jar")
+    tmp = request.form.get('name')
+    if len(tmp) > 8:
+        return render_template("hungry.html", fail=True)
+    else:
+        session['name'] = tmp
+        return redirect("/cookie-jar")
 
 @app.route("/cookie-jar")
 @jwt_required()

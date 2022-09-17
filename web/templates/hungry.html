@@ -8,6 +8,10 @@
 
 <h1>Enter your name to open the cookie jar</h1>
 
+{% if fail %}
+<p>Your name is too long! Try again</p>
+{% endif %}
+
 <form action="/who-are-you" method="post">
     <input type="text" name="name" id="name"/>
     <input type="submit" value="Submit" />
