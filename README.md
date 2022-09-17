@@ -48,19 +48,31 @@ PS > python -m flask run
 
 ### Part 1
 
+
+<details>
+
+<summary>Spoilers</summary>
+
 Change the `http://localhost:5000/?loginSuccessful=False` parameter to `True`
 
 OR
 
 Guess the weak credentials `admin`:`password`
 
+</details>
+
 ### Part 2
 
-Leak app secret with SSTI, submitting `{{ config }}` as username
+
+<details>
+
+<summary>Spoilers</summary>
+
+Leak app secret with SSTI, submitting `{{ config }}` as username. This will take you to a page that displays the `JWT_SECRET_KEY` parameter. This key is used to sign JWT cookies.
 
 THEN
 
-Inspect the JWT to see `is_admin` parameter and forge a new cookie
+Inspect the JWT to see `is_admin` parameter and forge a new cookie, using the following `jwt` library to import the `JWT_SECRET_KEY` as `secret`.
 
 ```
 $ python
@@ -75,4 +87,6 @@ $ python
 'eyJ0...ncRo'
 ```
 
-Replace the `access_token_cookie` with this new value and reload the page
+Replace the `access_token_cookie` with this new value and reload the page.
+
+</details>

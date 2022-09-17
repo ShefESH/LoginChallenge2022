@@ -51,7 +51,7 @@ def hungry():
 @app.route("/who-are-you", methods=["POST"])
 def get_name():
     tmp = request.form.get('name')
-    if len(tmp) > 8:
+    if len(tmp) > 12:
         return render_template("hungry.html", fail=True)
     else:
         session['name'] = tmp
