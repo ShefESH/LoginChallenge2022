@@ -54,3 +54,7 @@ def cookie_jar():
         return render_template("cookie-jar.html", allowed=True)
     else:
         return render_template("cookie-jar.html", allowed=False)
+
+def cleanup():
+    """clear cookies and any temp variables"""
+    return
