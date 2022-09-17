@@ -12,8 +12,9 @@ app = Flask(__name__)
 Bootstrap(app)
 
 # no need for sqlite authentication, just store uname/password
-uname = "SESHAdmin"
-pwd = "You#Still]Won't[Guess\This!2022,"
+#add alternative option to guess easy creds
+uname = "admin"
+pwd = "password"
 
 app.config["JWT_SECRET_KEY"] = ";nod87b;/dfub6vaz.knib"
 
