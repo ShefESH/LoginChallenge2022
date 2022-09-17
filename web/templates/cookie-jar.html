@@ -6,11 +6,7 @@
 
 {{super()}}
 
-{% if allowed %}
-<h1>Congratulations! You win a laptop sticker!</h1>
-{% else %}
-<h1>Only admins are allowed to open the cookie jar.</h1>
-{% endif %}
+<h1>{{ welcome_msg }}</h1>
 
 {% endblock %}
 

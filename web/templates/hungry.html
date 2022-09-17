@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}Want Some Cookies?{% endblock %}
+
+{% block content %}
+
+{{super()}}
+
+<h1>Enter your name to open the cookie jar</h1>
+
+<form action="/who-are-you" method="post">
+    <input type="text" name="name" id="name"/>
+    <input type="submit" value="Submit" />
+</form>
+
+{% endblock %}
+
+{% block footer %}
+
+{{super()}}
+
+{% endblock %}

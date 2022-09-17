@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import render_template, jsonify, make_response, redirect, request
+from flask import render_template, jsonify, make_response, redirect, request, session, render_template_string
 from flask_bootstrap import Bootstrap
 
 from flask_jwt_extended import create_access_token
@@ -15,6 +15,8 @@ Bootstrap(app)
 #add alternative option to guess easy creds
 uname = "admin"
 pwd = "password"
+
+app.secret_key = "pinrg8gns#arjg;/-]]"
 
 app.config["JWT_SECRET_KEY"] = ";nod87b;/dfub6vaz.knib"
 app.config['JWT_TOKEN_LOCATION'] = ['cookies']
@@ -38,23 +40,34 @@ def verify_login():
     else:
         return redirect("/?loginSuccessful=False")
 
-@app.route("/hard")
-def hard():
+@app.route("/hungry")
+def hungry():
     id_dict = {'is_admin': False}
     access_token = create_access_token(identity=id_dict)
-    resp = make_response(redirect("/cookie-jar"))
+    resp = make_response(render_template("hungry.html"))
     resp.set_cookie('access_token_cookie', access_token)
     return resp
+
+@app.route("/who-are-you", methods=["POST"])
+def get_name():
+    session['name'] = request.form.get('name')
+    return redirect("/cookie-jar")
 
 @app.route("/cookie-jar")
 @jwt_required()
 def cookie_jar():
     identity = get_jwt_identity()
+    name = session['name']
+
     if identity['is_admin']:
-        return render_template("cookie-jar.html", allowed=True)
+        welcome = "Congratulations! You win a laptop sticker!"
+        return render_template("cookie-jar.html", welcome_msg=welcome)
     else:
-        return render_template("cookie-jar.html", allowed=False)
+        msg = "Hello " + name + "! Unfortunately, only admins are allowed to open the cookie jar."
+        welcome = render_template_string(msg)
+        return render_template("cookie-jar.html", welcome_msg=welcome)
 
 def cleanup():
     """clear cookies and any temp variables"""
+    session['name'] = None
     return
