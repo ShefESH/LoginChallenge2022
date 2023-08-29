@@ -3,6 +3,20 @@ Mini CTF challenge for the September 2022 Activity Fair
 
 ## Install + Setup
 
+### Using poetry
+
+Install poetry for your platform
+
+``` sh
+# Enter project dir
+cd web
+# Install dependencies
+poetry install
+# Run application
+poetry run flask run
+```
+
+
 ### Install Flask
 
 **Windows**
