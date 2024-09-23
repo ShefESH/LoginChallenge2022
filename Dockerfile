@@ -1,13 +1,11 @@
-FROM alpine:latest
+FROM fedora:latest
 
-RUN apk add --update --no-cache python3 poetry && ln -sf python3 /usr/bin/python
+COPY . /loginchallenge
 
-RUN python3 -m ensurepip
+WORKDIR /loginchallenge
 
-COPY . /app
+RUN python3 -m venv loginchallenge_venv
 
-WORKDIR /app/web
+RUN loginchallenge_venv/bin/pip install -r requirements.txt
 
-RUN poetry install
-
-CMD poetry run flask run -h 0.0.0.0 -p 5000
+CMD loginchallenge_venv/bin/python3 -m flask --app web/app.py run -h 0.0.0.0 -p 1234
